@@ -41,7 +41,8 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">@lang('messages.welcome')</h1>
               </div>
-              <form class="user">
+              <form class="user" action="{{ route('login') }}" method="post">
+                @csrf
                 <div class="form-group">
                   <input type="email" class="form-control form-control-user" id="email" name="email" required aria-describedby="emailHelp" placeholder="Enter Email Address...">
                 </div>
