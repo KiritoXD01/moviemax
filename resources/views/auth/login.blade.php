@@ -47,15 +47,7 @@
                             @foreach ($errors->all() as $error)
                                 <li class="list-group-item-danger">{{ $error }}</li>
                             @endforeach
-                        </ul>@if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+                        </ul>
                     </div>
                 @endif
               <form class="user" action="{{ route('login') }}" method="post">
