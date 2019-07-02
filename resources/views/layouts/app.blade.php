@@ -39,7 +39,7 @@
                 @yield('content')
 
                 <!-- The Modal -->
-                    <div class="modal fade" id="ModalLogout">
+                <div class="modal fade" id="ModalLogout">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <!-- Modal Header -->
@@ -53,7 +53,7 @@
                                 </div>
                                 <!-- Modal footer -->
                                 <form action="{{ route('logout') }}" method="post" class="modal-footer">
-                                    @csrfFull Name
+                                    @csrf
                                     <button type="submit" class="btn btn-primary btn-block float-right">
                                         @lang('messages.logOut')
                                     </button>

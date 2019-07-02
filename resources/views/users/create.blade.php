@@ -57,7 +57,7 @@
                                 <option value="" selected>-- @lang('messages.userType') --</option>
                                 @foreach(App\Enums\UserType::UserTypes as $key => $value)
                                     <option value="{{ $key }}">{{ $value }}</option>
-                                @endforeach$UserType
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
