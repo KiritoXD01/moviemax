@@ -19,4 +19,6 @@ return [
     'actions' => 'Acciones',
     'edit' => 'Editar',
     'delete' => 'Eliminar',
+    'save' => 'Guardar',
+    'changes' => 'Cambios',
 ];
