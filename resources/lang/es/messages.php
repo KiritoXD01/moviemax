@@ -26,4 +26,5 @@ return [
     'birthDate' => 'Fecha de Nacimiento',
     'password' => 'Contraseña',
     'confirm' => 'Confirmar',
+    'userType' => 'Tipo de Usuario',
 ];

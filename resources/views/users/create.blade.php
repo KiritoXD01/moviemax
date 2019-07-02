@@ -47,10 +47,19 @@
                         </div>
                         <div class="form-group">
                             <label for="birthdate">@lang('messages.birthDate')</label>
-                            <input type="text" id="birthdate" name="birthdate" class="form-control" required placeholder="@lang('messages.birthDate')...">
+                            <input type="text" id="birthdate" name="birthdate" class="form-control" required placeholder="@lang('messages.birthDate')..." readonly style="background-color: white;">
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="user_type">@lang('messages.userType')</label>
+                            <select id="user_type" name="user_type" class="form-control" required>
+                                <option value="" selected>-- @lang('messages.userType') --</option>
+                                @foreach(App\Enums\UserType::UserTypes as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach$UserType
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="password">@lang('messages.password')</label>
                             <input type="password" id="password" name="password" class="form-control" required placeholder="@lang('passwords.password')...">
@@ -59,7 +68,6 @@
                             <label for="confirm_password">@lang('messages.confirm') @lang('messages.password')</label>
                             <input type="password" id="confirm_password" name="confirm_password" class="form-control" required placeholder="@lang('messages.confirm') @lang('messages.password')...">
                         </div>
-                        <br>
                         <div class="form-group">
                             <div class="custom-control custom-switch">
                                 <input type="hidden" name="status" value="0">
