@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PasswordPostValidation;
 use App\Http\Requests\UserStorePostValidation;
 use App\Http\Requests\UserUpdatePostValidation;
 use App\Models\User;
 use App\Repositories\Contracts\UserRepository;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -42,6 +44,19 @@ class UserController extends Controller
 
     public function update(UserUpdatePostValidation $request, User $user)
     {
-        return $request->all();
+        $this->user->update($request->all(), $user);
+        return redirect(route('users.edit', compact('user')));
+    }
+
+    public function updatePassword(PasswordPostValidation $request, User $user)
+    {
+        if (!Hash::check($request->old_password, $user->password))
+        {
+            $request->session()->flash('failure', trans('messages.invalidPassword'));
+            return redirect(route('users.edit', compact('user')));
+        }
+
+        $this->user->update($request->all(), $user);
+        return redirect(route('users.edit', compact('user')));
     }
 }

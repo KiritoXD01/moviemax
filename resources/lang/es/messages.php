@@ -27,4 +27,7 @@ return [
     'password' => 'Contraseña',
     'confirm' => 'Confirmar',
     'userType' => 'Tipo de Usuario',
+    'change' => 'Cambiar',
+    'previous' => 'Anterior',
+    'invalidPassword' => 'La contraseña es incorrect',
 ];

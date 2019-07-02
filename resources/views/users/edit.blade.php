@@ -70,6 +70,44 @@
             </div>
         </form>
     </div>
+    <div class="col-md-6">
+        <form action="{{ route('users.updatePassword', $user->id) }}" method="post">
+            @method('PATCH')
+            @csrf
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="{{ route('users.index') }}" class="btn btn-warning">
+                                <i class="fa fa-fw fa-undo"></i> @lang('messages.cancel')
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-primary float-right">
+                                <i class="fa fa-fw fa-save"></i> @lang('messages.change') @lang('messages.password')
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="old_password">@lang('messages.previous') @lang('messages.password')</label>
+                            <input type="password" id="old_password" name="old_password" class="form-control" required placeholder="@lang('messages.previous') @lang('messages.password')...">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">@lang('messages.password')</label>
+                            <input type="password" id="password" name="password" class="form-control" required placeholder="@lang('passwords.password')...">
+                        </div>
+                        <div class="form-group">
+                            <label for="password_confirmation">@lang('messages.confirm') @lang('messages.password')</label>
+                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required placeholder="@lang('messages.confirm') @lang('messages.password')...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 @endsection
 
