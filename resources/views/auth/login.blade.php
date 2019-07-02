@@ -41,10 +41,27 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">@lang('messages.welcome')</h1>
               </div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul class="list-group">
+                            @foreach ($errors->all() as $error)
+                                <li class="list-group-item-danger">{{ $error }}</li>
+                            @endforeach
+                        </ul>@if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    </div>
+                @endif
               <form class="user" action="{{ route('login') }}" method="post">
                 @csrf
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="email" name="email" required aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                  <input type="email" class="form-control form-control-user" id="email" name="email" required aria-describedby="emailHelp" placeholder="Enter Email Address..." value="{{ old('email') }}">
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control form-control-user" id="password" name="password" required placeholder="Password">
@@ -55,9 +72,9 @@
                     <label class="custom-control-label" for="customCheck">Remember Me</label>
                   </div>
                 </div>
-                <a href="index.html" class="btn btn-primary btn-user btn-block">
+                <button type="submit" class="btn btn-primary btn-user btn-block">
                   Login
-                </a>
+                </button>
               </form>
               <hr>
               <div class="text-center">

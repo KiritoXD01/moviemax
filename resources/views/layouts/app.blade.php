@@ -15,6 +15,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('template/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <!-- Custom styles for this page -->
+    <link href="{{ asset('template/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    <!-- Gijgo datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.13/combined/css/gijgo.min.css">
 </head>
 <body id="page-top">
 <!-- Page Wrapper -->
@@ -33,6 +37,31 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
                 @yield('content')
+
+                <!-- The Modal -->
+                <div class="modal fade" id="ModalLogout">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">@lang('messages.logOut')</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body text-center">
+                                    @lang('messages.logOut')?
+                                </div>
+                                <!-- Modal footer -->
+                                <form action="{{ route('logout') }}" method="post" class="modal-footer">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary btn-block float-right">
+                                        @lang('messages.logOut')
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <!-- end Modal -->
             </div>
             <!-- END Page Content -->
         </div>
@@ -49,6 +78,11 @@
 
 <!-- Custom scripts for all pages-->
 <script src="{{ asset('template/js/sb-admin-2.min.js') }}"></script>
+<!-- Page level plugins -->
+<script src="{{ asset('template/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('template/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+<!-- Gijgo datepicker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.13/combined/js/gijgo.min.js"></script>
 @yield('javascript')
 </body>
 </html>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Enums\UserType;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class InitialSeeder extends Seeder
