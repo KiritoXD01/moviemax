@@ -29,6 +29,7 @@ class UserStorePostValidation extends FormRequest
             'email'     => 'required|max:255|email|unique:users,email',
             'birthdate' => 'required',
             'user_type' => 'required',
+            'password'  => 'required|string|min:8|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
         ];
     }
 }

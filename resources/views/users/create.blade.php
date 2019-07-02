@@ -34,20 +34,20 @@
                         <div class="form-group row">
                             <div class="col-6">
                                 <label for="firstname">@lang('messages.name')</label>
-                                <input type="text" id="firstname" name="firstname" class="form-control" required placeholder="@lang('messages.name')...">
+                                <input type="text" id="firstname" name="firstname" class="form-control" required placeholder="@lang('messages.name')..." value="{{ old('firstname') }}">
                             </div>
                             <div class="col-6">
                                 <label for="lastname">@lang('messages.lastName')</label>
-                                <input type="text" id="lastname" name="lastname" class="form-control" required placeholder="@lang('messages.lastName')...">
+                                <input type="text" id="lastname" name="lastname" class="form-control" required placeholder="@lang('messages.lastName')..." value="{{ old('lastname') }}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" required placeholder="Email...">
+                            <input type="email" id="email" name="email" class="form-control" required placeholder="Email..." value="{{ old('email') }}">
                         </div>
                         <div class="form-group">
                             <label for="birthdate">@lang('messages.birthDate')</label>
-                            <input type="text" id="birthdate" name="birthdate" class="form-control" required placeholder="@lang('messages.birthDate')..." readonly style="background-color: white;">
+                            <input type="text" id="birthdate" name="birthdate" class="form-control" required placeholder="@lang('messages.birthDate')..." readonly style="background-color: white;" value="{{ old('birthdate') }}">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -65,8 +65,8 @@
                             <input type="password" id="password" name="password" class="form-control" required placeholder="@lang('passwords.password')...">
                         </div>
                         <div class="form-group">
-                            <label for="confirm_password">@lang('messages.confirm') @lang('messages.password')</label>
-                            <input type="password" id="confirm_password" name="confirm_password" class="form-control" required placeholder="@lang('messages.confirm') @lang('messages.password')...">
+                            <label for="password_confirmation">@lang('messages.confirm') @lang('messages.password')</label>
+                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required placeholder="@lang('messages.confirm') @lang('messages.password')...">
                         </div>
                         <div class="form-group">
                             <div class="custom-control custom-switch">
@@ -88,6 +88,7 @@
         let today = new Date(
             new Date().getFullYear(),
             new Date().getMonth(),
+        $user =
             new Date().getDate()
         );
 
