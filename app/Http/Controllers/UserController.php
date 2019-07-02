@@ -59,4 +59,10 @@ class UserController extends Controller
         $this->user->update($request->all(), $user);
         return redirect(route('users.edit', compact('user')));
     }
+
+    public function destroy(User $user)
+    {
+        $this->user->destroy($user);
+        return redirect(route('users.index'));
+    }
 }
