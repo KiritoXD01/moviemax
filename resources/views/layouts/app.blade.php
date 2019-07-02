@@ -22,6 +22,17 @@
     <!-- Sidebar -->
     @include('layouts.sidebar')
     <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+            <!-- Topbar -->
+            @include('layouts.header')
+            <!-- End of Topbar -->
+        </div>
+        <!-- END Main Content -->
+    </div>
 </div>
 
 <!-- Bootstrap core JavaScript-->
