@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserStorePostValidation;
+use App\Http\Requests\UserUpdatePostValidation;
 use App\Models\User;
 use App\Repositories\Contracts\UserRepository;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -40,10 +40,8 @@ class UserController extends Controller
         return view('users.edit', compact('user'));
     }
 
-    public function update(Request $request, User $user)
+    public function update(UserUpdatePostValidation $request, User $user)
     {
-
-
         return $request->all();
     }
 }
