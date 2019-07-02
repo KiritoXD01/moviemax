@@ -17,6 +17,8 @@
     <link href="{{ asset('template/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <!-- Custom styles for this page -->
     <link href="{{ asset('template/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    <!-- Gijgo datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.13/combined/css/gijgo.min.css">
 </head>
 <body id="page-top">
 <!-- Page Wrapper -->
@@ -79,6 +81,8 @@
 <!-- Page level plugins -->
 <script src="{{ asset('template/vendor/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('template/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+<!-- Gijgo datepicker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.13/combined/js/gijgo.min.js"></script>
 @yield('javascript')
 </body>
 </html>

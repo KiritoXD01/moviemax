@@ -21,4 +21,9 @@ return [
     'delete' => 'Eliminar',
     'save' => 'Guardar',
     'changes' => 'Cambios',
+    'name' => 'Nombre',
+    'lastName' => 'Apellido',
+    'birthDate' => 'Fecha de Nacimiento',
+    'password' => 'Contraseña',
+    'confirm' => 'Confirmar',
 ];
