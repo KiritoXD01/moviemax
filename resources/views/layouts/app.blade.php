@@ -15,6 +15,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('template/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <!-- Custom styles for this page -->
+    <link href="{{ asset('template/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 </head>
 <body id="page-top">
 <!-- Page Wrapper -->
@@ -49,7 +51,7 @@
                                 </div>
                                 <!-- Modal footer -->
                                 <form action="{{ route('logout') }}" method="post" class="modal-footer">
-                                    @csrf
+                                    @csrfFull Name
                                     <button type="submit" class="btn btn-primary btn-block float-right">
                                         @lang('messages.logOut')
                                     </button>
@@ -74,6 +76,9 @@
 
 <!-- Custom scripts for all pages-->
 <script src="{{ asset('template/js/sb-admin-2.min.js') }}"></script>
+<!-- Page level plugins -->
+<script src="{{ asset('template/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('template/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 @yield('javascript')
 </body>
 </html>
