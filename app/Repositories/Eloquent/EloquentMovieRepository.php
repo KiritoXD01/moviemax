@@ -16,7 +16,14 @@ class EloquentMovieRepository implements MovieRepository
 
     public function create(array $attributes)
     {
-        return $this->movie->create($attributes);
+        $movie = $this->movie->create($attributes);
+        
+        if (isset($attributes['image']))
+        {
+            $movie->addMediaFromRequest('image')->toMediaCollection('movies');
+        }
+
+        return $movie;
     }
 
     public function update(array $attributes, Movie $movie)

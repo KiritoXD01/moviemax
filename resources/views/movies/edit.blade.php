@@ -2,8 +2,9 @@
 @section('title', trans('messages.add').' '.trans('messages.movie'))
 
 @section('content')
-    <form action="{{ route('movies.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('movies.update', $movie->id) }}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('PATCH')
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="row">
@@ -14,7 +15,7 @@
                     </div>
                     <div class="col-6">
                         <button type="submit" class="btn btn-primary float-right">
-                            <i class="fa fa-fw fa-save"></i> @lang('messages.save') @lang('messages.movie')
+                            <i class="fa fa-fw fa-save"></i> @lang('messages.save') @lang('messages.changes')
                         </button>
                     </div>
                 </div>
@@ -33,11 +34,11 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="title">@lang('messages.title')</label>
-                            <input type="text" id="title" name="title" class="form-control" placeholder="@lang('messages.title')..." value="{{ old('title') }}" required>
+                            <input type="text" id="title" name="title" class="form-control" placeholder="@lang('messages.title')..." value="{{ $movie->title }}" required>
                         </div>
                         <div class="form-group">
                             <label for="year">@lang('messages.year')</label>
-                            <input type="text" id="year" name="year" class="form-control" placeholder="@lang('messages.year')..." value="{{ old('year') }}" required readonly style="background-color: white;">
+                            <input type="text" id="year" name="year" class="form-control" placeholder="@lang('messages.year')..." value="{{ $movie->year }}" required readonly style="background-color: white;">
                         </div>
                         <div class="form-group">
                             <label for="imdb_id">IMDB ID</label>
@@ -83,9 +84,9 @@
 <script>
 $(document).ready(function(){
     $("#year").datepicker({
-        format: "yyyy",
-        viewMode: "years",
-        minViewMode: "years"
+        format: 'yyyy',
+        uiLibrary: 'bootstrap4',
+        header: true
     });
 
     $("#image").change(function(){

@@ -27,6 +27,7 @@ class MovieStorePostValidation extends FormRequest
             'title'   => 'required|unique:movies,title',
             'year'    => 'required|integer|min:1900|max:'.date('Y'),
             'imdb_id' => 'required|unique:movies,imdb_id',
+            'image'   => 'required|dimensions:max_width=1024'
         ];
     }
 }

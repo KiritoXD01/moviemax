@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
-use Illuminate\Http\Request;
 use App\Http\Requests\MovieStorePostValidation;
+use App\Repositories\Contracts\MovieRepository;
 
 class MovieController extends Controller
 {
-    public function __construct()
+    protected $movie;
+
+    public function __construct(MovieRepository $movieRepository)
     {
         $this->middleware('auth');
+        $this->movie = $movieRepository;
     }
 
     public function index()
@@ -28,5 +31,10 @@ class MovieController extends Controller
     public function store(MovieStorePostValidation $request)
     {
         return $request->all();
+    }
+
+    public function edit(Movie $movie)
+    {
+        return view('movies.edit', compact('movie'));
     }
 }
