@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group">
                             <label for="imdb_id">IMDB ID</label>
-                            <input type="text" id="imdb_id" name="imdb_id" class="form-control" required placeholder="IMDB ID..." value="{{ old('imdb_id') }}">
+                            <input type="text" id="imdb_id" name="imdb_id" class="form-control" required placeholder="IMDB ID..." value="{{ $movie->imdb_id }}">
                         </div>
                         <div class="form-group">
                             <div class="custom-control custom-switch">
@@ -55,22 +55,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="image">@lang('messages.image')</label>
-                            <div class="row">
-                                <div class="col-6">
-                                    <button type="button" class="btn btn-primary btn-block" id="btnImage">
-                                        <i class="fa fa-plus fa-fw"></i> @lang('messages.add') @lang('messages.image')
-                                    </button>
-                                </div>
-                                <div class="col-6">
-                                    <button type="button" class="btn btn-danger btn-block" id="cancelImg">
-                                        <i class="fa fa-trash fa-fw"></i> @lang('messages.delete') @lang('messages.image')
-                                    </button>
-                                </div>
-                            </div>
+                            <button type="button" class="btn btn-primary btn-block" id="btnImage">
+                                <i class="fa fa-plus fa-fw"></i> @lang('messages.add') @lang('messages.image')
+                            </button>
                             <input type="file" id="image" name="image" accept="image/*" style="display: none;">
                             <br>
                             <div class="text-center">
-                                <img src="{{ asset('img/addimage.png') }}" alt="" id="previewImg" class="img-thumbnail" style="width: 70%;" />
+                                <img src="{{ $movie->getFirstMediaUrl('movies') }}" alt="" id="previewImg" class="img-thumbnail" style="width: 70%;" />
                             </div>
                         </div>
                     </div>
@@ -84,9 +75,9 @@
 <script>
 $(document).ready(function(){
     $("#year").datepicker({
-        format: 'yyyy',
-        uiLibrary: 'bootstrap4',
-        header: true
+        format: "yyyy",
+        viewMode: "years",
+        minViewMode: "years"
     });
 
     $("#image").change(function(){
@@ -104,14 +95,6 @@ $(document).ready(function(){
 
     $("#btnImage").click(function(){
         document.getElementById('image').click();
-    });
-
-    $("#cancelImg").click(function(){
-        let preview = document.getElementById('previewImg');
-        let image   = document.getElementById('image');
-
-        preview.src = "{{ asset('img/addimage.png') }}";
-        image.value = "";
     });
 });
 </script>

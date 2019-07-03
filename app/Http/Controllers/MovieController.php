@@ -30,11 +30,15 @@ class MovieController extends Controller
 
     public function store(MovieStorePostValidation $request)
     {
-        return $request->all();
+        $request['imdb_id'] = str_replace('tt', '', $request['imdb_id']);
+        $movie = $this->movie->create($request->all());
+        return redirect(route('movies.edit', compact('movie')));
     }
 
     public function edit(Movie $movie)
     {
         return view('movies.edit', compact('movie'));
     }
+
+
 }
