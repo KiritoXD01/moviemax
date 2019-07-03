@@ -35,4 +35,6 @@ return [
     'year' => 'Año',
     'add' => 'Agregar',
     'image' => 'Imagen',
+    'generate' => 'Generar',
+    'report' => 'Reporte',
 ];
