@@ -26,3 +26,4 @@ Route::group(['prefix' => 'auth'], function(){
         Route::post('logout', 'AuthController@logout')->name('auth.logout');
     });
 });
+
