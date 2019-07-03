@@ -19,7 +19,7 @@ class MovieController extends Controller
 
     public function index()
     {
-        $movies = Movie::all();
+        $movies = Movie::with('media')->get();
 
         return $movies;
 
