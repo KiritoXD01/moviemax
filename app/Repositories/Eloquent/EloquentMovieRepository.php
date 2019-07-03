@@ -28,6 +28,12 @@ class EloquentMovieRepository implements MovieRepository
 
     public function update(array $attributes, Movie $movie)
     {
+        if (isset($attributes['image']))
+        {
+            $movie->getMedia('movies')[0]->delete();
+            $movie->addMediaFromRequest('image')->toMediaCollection('movies');
+        }
+
         return $movie->update($attributes);
     }
 

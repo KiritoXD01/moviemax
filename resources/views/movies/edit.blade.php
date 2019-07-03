@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', trans('messages.add').' '.trans('messages.movie'))
+@section('title', trans('messages.edit').' '.trans('messages.movie'))
 
 @section('content')
     <form action="{{ route('movies.update', $movie->id) }}" method="post" enctype="multipart/form-data">
