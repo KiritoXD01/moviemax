@@ -30,4 +30,11 @@ return [
     'change' => 'Cambiar',
     'previous' => 'Anterior',
     'invalidPassword' => 'La contraseña es incorrect',
+    'movie' => 'Pelicula',
+    'title' => 'Titulo',
+    'year' => 'Año',
+    'add' => 'Agregar',
+    'image' => 'Imagen',
+    'generate' => 'Generar',
+    'report' => 'Reporte',
 ];

@@ -37,7 +37,7 @@
 
     <!-- Users Page -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{ route('movies.index') }}">
             <i class="fas fa-fw fa-film"></i>
             <span>@lang('messages.movies')</span>
         </a>
