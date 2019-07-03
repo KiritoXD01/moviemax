@@ -61,7 +61,7 @@
                             <input type="file" id="image" name="image" accept="image/*" style="display: none;">
                             <br>
                             <div class="text-center">
-                                <img src="" alt="" id="previewImg" class="img-thumbnail" style="width: 70%;" />
+                                <img src="{{ $movie->getMedia('movies')[0]->getFullUrl() }}" alt="" id="previewImg" class="img-thumbnail" style="width: 70%;" />
                             </div>
                         </div>
                     </div>
