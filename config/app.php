@@ -1,4 +1,5 @@
 <?php
+use App\Repositories\Providers\MovieProvider;
 
 return [
 
@@ -175,6 +176,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Repositories\Providers\UserProvider::class,
+        App\Repositories\Providers\MovieProvider::class,
 
     ],
 
