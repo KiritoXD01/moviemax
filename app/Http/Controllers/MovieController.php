@@ -21,6 +21,8 @@ class MovieController extends Controller
     {
         $movies = Movie::all();
 
+        return $movies;
+
         return view('movies.index', compact('movies'));
     }
 
@@ -44,5 +46,11 @@ class MovieController extends Controller
     {
         $this->movie->update($request->all(), $movie);
         return redirect(route('movies.edit', compact('movie')));
+    }
+
+    public function destroy(Movie $movie)
+    {
+        $this->movie->destroy($movie);
+        return redirect(route('movies.index'));
     }
 }
