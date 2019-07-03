@@ -2,7 +2,7 @@
 @section('title', trans('messages.add').' '.trans('messages.movie'))
 
 @section('content')
-    <form action="{{ route('movies.store') }}" method="post">
+    <form action="{{ route('movies.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -84,7 +84,8 @@
 $(document).ready(function(){
     $("#year").datepicker({
         format: 'yyyy',
-        uiLibrary: 'bootstrap4'
+        uiLibrary: 'bootstrap4',
+        header: true
     });
 
     $("#image").change(function(){

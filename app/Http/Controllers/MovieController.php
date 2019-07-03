@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use App\Http\Requests\MovieStorePostValidation;
 
 class MovieController extends Controller
 {
@@ -24,8 +25,8 @@ class MovieController extends Controller
         return view('movies.create');
     }
 
-    public function store()
+    public function store(MovieStorePostValidation $request)
     {
-        
+        return $request->all();
     }
 }
