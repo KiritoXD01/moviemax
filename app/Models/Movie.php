@@ -9,4 +9,8 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 class Movie extends Model implements HasMedia
 {
     use HasMediaTrait;
+
+    protected $fillable = [
+        'title', 'year', 'imdb_id', 'status'
+    ];
 }

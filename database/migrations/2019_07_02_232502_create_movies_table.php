@@ -18,6 +18,7 @@ class CreateMoviesTable extends Migration
             $table->string('title')->unique();
             $table->year('year');
             $table->string('imdb_id')->unique();
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }
