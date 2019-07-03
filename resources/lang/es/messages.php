@@ -30,4 +30,5 @@ return [
     'change' => 'Cambiar',
     'previous' => 'Anterior',
     'invalidPassword' => 'La contraseña es incorrect',
+    'movie' => 'Pelicula',
 ];
