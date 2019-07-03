@@ -31,4 +31,7 @@ return [
     'previous' => 'Previous',
     'invalidPassword' => 'The password is not correct',
     'movie' => 'Movie',
+    'title' => 'Title',
+    'year' => 'Year',
+    'add' => 'Add',
 ];
