@@ -66,8 +66,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <input type="hidden" name="image" id="image" value="{{ old('image') }}">
-                            <input type="file" id="hiddenImage" accept="image/*">
+                            <input type="file" id="image" name="image" accept="image/*" style="display: none;">
                             <br>
                             <div class="text-center">
                                 <img src="{{ asset('img/addimage.png') }}" alt="" id="previewImg" class="img-thumbnail" style="width: 70%;" />
@@ -86,6 +85,31 @@ $(document).ready(function(){
     $("#year").datepicker({
         format: 'yyyy',
         uiLibrary: 'bootstrap4'
+    });
+
+    $("#image").change(function(){
+        let file    = document.getElementById('image').files[0];
+        let preview = document.getElementById('previewImg');
+        let reader  = new FileReader();
+
+        reader.onloadend = function() {
+            preview.src = reader.result;
+        };
+
+        if (file)
+            reader.readAsDataURL(file);
+    });
+
+    $("#btnImage").click(function(){
+        document.getElementById('image').click();
+    });
+
+    $("#cancelImg").click(function(){
+        let preview = document.getElementById('previewImg');
+        let image   = document.getElementById('image');
+
+        preview.src = "{{ asset('img/addimage.png') }}";
+        image.value = "";
     });
 });
 </script>

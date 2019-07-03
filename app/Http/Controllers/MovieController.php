@@ -23,4 +23,9 @@ class MovieController extends Controller
     {
         return view('movies.create');
     }
+
+    public function store()
+    {
+        
+    }
 }

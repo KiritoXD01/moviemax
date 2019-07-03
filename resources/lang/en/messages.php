@@ -34,4 +34,5 @@ return [
     'title' => 'Title',
     'year' => 'Year',
     'add' => 'Add',
+    'image' => 'Imagen',
 ];
