@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MovieUpdatePostValidation;
 use App\Models\Movie;
 use App\Http\Requests\MovieStorePostValidation;
 use App\Repositories\Contracts\MovieRepository;
@@ -30,7 +31,6 @@ class MovieController extends Controller
 
     public function store(MovieStorePostValidation $request)
     {
-        $request['imdb_id'] = str_replace('tt', '', $request['imdb_id']);
         $movie = $this->movie->create($request->all());
         return redirect(route('movies.edit', compact('movie')));
     }
@@ -40,5 +40,9 @@ class MovieController extends Controller
         return view('movies.edit', compact('movie'));
     }
 
-
+    public function update(MovieUpdatePostValidation $request, Movie $movie)
+    {
+        $this->movie->update($request->all(), $movie);
+        return redirect(route('movies.edit', compact('movie')));
+    }
 }
