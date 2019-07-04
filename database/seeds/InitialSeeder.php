@@ -14,7 +14,7 @@ class InitialSeeder extends Seeder
     public function run()
     {
         factory(App\Models\User::class)->create([
-            'email' => 'manuelmercedez10@gmail.com',
+            'email' => 'test@moviemax.com',
             'user_type' => App\Enums\UserType::ADMIN
         ]);
 
