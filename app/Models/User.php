@@ -48,4 +48,12 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($value);
     }
+
+    /**
+     * Get the movies that the user likes
+     */
+    public function favorite_movies()
+    {
+        return $this->belongsToMany('App\Models\Movie', 'favorite_movies');
+    }
 }

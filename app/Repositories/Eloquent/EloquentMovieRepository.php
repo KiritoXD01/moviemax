@@ -4,6 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use App\Repositories\Contracts\MovieRepository;
 use App\Models\Movie;
+use App\Models\User;
 
 class EloquentMovieRepository implements MovieRepository
 {
@@ -40,5 +41,27 @@ class EloquentMovieRepository implements MovieRepository
     public function destroy(Movie $movie)
     {
         return $movie->delete();
+    }
+
+    public function addFavoriteMovie(array $attributes)
+    {
+        $user = User::find($attributes['user_id']);
+
+        $movies = [$attributes['movie_id']];
+        
+        $user->favorite_movies()->attach($movies);
+
+        return $user->favorite_movies;
+    }
+
+    public function removeFavoriteMovie(array $attributes)
+    {
+        $user = User::find($attributes['user_id']);
+
+        $movies = [$attributes['movie_id']];
+        
+        $user->favorite_movies()->detach($movies);
+
+        return $user->favorite_movies;
     }
 }

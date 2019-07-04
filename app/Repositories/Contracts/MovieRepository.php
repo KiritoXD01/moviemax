@@ -9,4 +9,6 @@ interface MovieRepository
     public function create(array $attributes);
     public function update(array $attributes, Movie $movie);
     public function destroy(Movie $movie);
+    public function addFavoriteMovie(array $attributes);
+    public function removeFavoriteMovie(array $attributes);
 }

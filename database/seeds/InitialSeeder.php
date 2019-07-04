@@ -21,7 +21,5 @@ class InitialSeeder extends Seeder
         factory(App\Models\User::class, 5)->create([
             'user_type' => App\Enums\UserType::USER
         ]);
-
-        factory(App\Models\Movie::class, 10)->create();
     }
 }
