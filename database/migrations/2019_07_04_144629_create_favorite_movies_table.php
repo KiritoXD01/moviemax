@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMovieuserTable extends Migration
+class CreateFavoriteMoviesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateMovieuserTable extends Migration
      */
     public function up()
     {
-        Schema::create('movieuser', function (Blueprint $table) {
+        Schema::create('favorite_movies', function (Blueprint $table) {
             $table->bigIncrements('id');    
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('movie_id');
-            $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade');
@@ -31,6 +30,6 @@ class CreateMovieuserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movieuser');
+        Schema::dropIfExists('favorite_movies');
     }
 }

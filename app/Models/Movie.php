@@ -37,6 +37,6 @@ class Movie extends Model implements HasMedia
      */
     public function users()
     {
-        return $this->belongsToMany('App\Models\User', 'movieuser');
+        return $this->belongsToMany('App\Models\User', 'favorite_movies');
     }
 }
