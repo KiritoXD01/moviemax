@@ -24,7 +24,7 @@ class Movietest extends TestCase
      * @test
      * test to get movies based by title
      */
-    public function userSearchMoviesByTitle()
+    public function userCanSearchMoviesByTitle()
     {
         $data = [
             'title' => 'Ave' //search for avengers endgame
