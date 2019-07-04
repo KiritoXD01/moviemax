@@ -29,4 +29,10 @@ class UserApiController extends Controller
         $this->user->update($request->all(), $user);
         return $user;
     }
+
+    public function getfavoriteMovies(User $user)
+    {
+        $movies = $this->user->getUserFavoriteMovies($user);
+        return $movies;
+    }
 }

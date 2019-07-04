@@ -34,4 +34,5 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::post('movies', 'MovieApiController@search')->name('movie.search');
     Route::post('movies/addfavorite', 'MovieApiController@addFavoriteMovie')->name('movie.addFavorite');
     Route::post('movies/removefavorite', 'MovieApiController@removeFavoriteMovie')->name('movie.removeFavorite');
+    Route::post('user/getFavorites/{user}', 'UserApiController@getfavoriteMovies')->name('user.getFavorites');
 });

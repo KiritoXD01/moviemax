@@ -10,4 +10,5 @@ interface UserRepository
     public function create(array $attributes);
     public function update(array $attributes, User $user);
     public function destroy(User $user);
+    public function getUserFavoriteMovies(User $user);
 }

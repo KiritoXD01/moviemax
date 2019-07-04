@@ -21,6 +21,16 @@
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> @lang('messages.profile')
                 </a>
                 <div class="dropdown-divider"></div>
+                @if(Session::get('locale') == 'es')
+                <a class="dropdown-item" href="{{ route('changeLanguage', 'en') }}">
+                    <i class="fas fa-globe fa-sm fa-fw mr-2 text-gray-400"></i> Ingles
+                </a>
+                @else
+                <a class="dropdown-item" href="{{ route('changeLanguage', 'es') }}">
+                    <i class="fas fa-globe fa-sm fa-fw mr-2 text-gray-400"></i> Spanish
+                </a>
+                @endif
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#ModalLogout">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> @lang('messages.logOut')
                 </a>

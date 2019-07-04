@@ -49,7 +49,7 @@ class EloquentMovieRepository implements MovieRepository
 
         $movies = [$attributes['movie_id']];
         
-        $user->favorite_movies()->attach($movies);
+        $user->favorite_movies()->syncWithoutDetaching($movies);
 
         return $user->favorite_movies;
     }

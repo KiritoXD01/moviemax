@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,20 @@ class HomeController extends Controller
     public function index()
     {
         $movies = Movie::count();
+        $users  = User::count();
 
-        return view('home', compact('movies'));
+        $TopMovies = Movie::withCount('users')
+            ->limit(10)
+            ->orderBy('users_count', 'desc')
+            ->get();
+
+        return view('home', compact('movies', 'users', 'TopMovies'));
+    }
+
+    public function changeLanguage(Request $request)
+    {
+        session(['locale' => $request->language]);
+
+        return redirect()->back();
     }
 }

@@ -32,4 +32,9 @@ class EloquentUserRepository implements UserRepository
     {
         return $user->delete();
     }
+
+    public function getUserFavoriteMovies(User $user)
+    {
+        return $user->favorite_movies;
+    }
 }
