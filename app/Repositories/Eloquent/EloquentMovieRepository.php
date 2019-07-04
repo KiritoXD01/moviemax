@@ -53,4 +53,15 @@ class EloquentMovieRepository implements MovieRepository
 
         return $user->favorite_movies;
     }
+
+    public function removeFavoriteMovie(array $attributes)
+    {
+        $user = User::find($attributes['user_id']);
+
+        $movies = [$attributes['movie_id']];
+        
+        $user->favorite_movies()->detach($movies);
+
+        return $user->favorite_movies;
+    }
 }

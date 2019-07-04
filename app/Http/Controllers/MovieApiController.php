@@ -29,4 +29,9 @@ class MovieApiController extends Controller
     {
         return $this->movie->addFavoriteMovie($request->all());
     }
+
+    public function removeFavoriteMovie(Request $request)
+    {
+        return $this->movie->removeFavoriteMovie($request->all());
+    }
 }

@@ -29,7 +29,7 @@ class Movie extends Model implements HasMedia
      */
     public function getImageUrlAttribute()
     {
-        return $this->getMedia('movies')[0]->getFullUrl();
+        return (empty($this->getMedia('movies')->first())) ? public_path()."/img/unavailable/png" : $this->getMedia('movies')[0]->getFullUrl();
     }
 
     /**

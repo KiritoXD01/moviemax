@@ -15,6 +15,8 @@ class MovieSeeder extends Seeder
             'user_type' => App\Enums\UserType::USER
         ]);
 
-        factory(App\Models\Movie::class, 10)->create();
+        factory(App\Models\Movie::class)->create([
+            'title' => 'Avengers Endgame'
+        ]);
     }
 }
