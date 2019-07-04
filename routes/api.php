@@ -27,6 +27,8 @@ Route::group(['prefix' => 'auth'], function(){
     });
 });
 
+Route::post('user', 'UserApiController@store')->name('user.store');
+
 Route::group(['middleware' => 'auth:api'], function(){
-    Route::resource('user', 'UserApiController');
+    Route::patch('user/{user}', 'UserApiController@update')->name('user.update');
 });

@@ -17,7 +17,7 @@ class UserApiController extends Controller
         $this->user = $userRepository;
     }
 
-    public function create(UserStorePostValidation $request)
+    public function store(UserStorePostValidation $request)
     {
         $request['user_type'] = UserType::USER;
         $user = $this->user->create($request->all());

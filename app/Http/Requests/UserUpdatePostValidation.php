@@ -24,10 +24,10 @@ class UserUpdatePostValidation extends FormRequest
     public function rules()
     {
         return [
-            'firstname' => 'required|max:255',
-            'lastname'  => 'required|max:255',
-            'email'     => 'required|email|unique:users,email,'.$this->user()->id,
-            'birthdate' => 'required',
+            'firstname' => 'sometimes|max:255',
+            'lastname'  => 'sometimes|max:255',
+            'email'     => 'sometimes|email|unique:users,email,'.$this->user()->id,
+            'birthdate' => 'sometimes',
             'user_type' => 'sometimes',
         ];
     }
