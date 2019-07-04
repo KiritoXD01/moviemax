@@ -13,4 +13,11 @@ class Movie extends Model implements HasMedia
     protected $fillable = [
         'title', 'year', 'imdb_id', 'status'
     ];
+
+    protected $appends = ['imdb_id'];
+
+    public function setImdbIdAttribute($value)
+    {
+        $this->attributes['imdb_id'] = "https://www.imdb.com/title/".$value."/";
+    }
 }
