@@ -14,10 +14,15 @@ class Movie extends Model implements HasMedia
         'title', 'year', 'imdb_id', 'status'
     ];
 
-    protected $appends = ['imdb_id'];
+    protected $appends = ['imdb_url', 'image_url'];
 
-    public function setImdbIdAttribute($value)
+    public function getImdbUrlAttribute()
     {
-        $this->attributes['imdb_id'] = "https://www.imdb.com/title/".$value."/";
+        return "https://www.imdb.com/title/{$this->imdb_id}/";
+    }
+
+    public function getImageUrlAttribute()
+    {
+        return $this->getMedia('movies')[0]->getFullUrl();
     }
 }
