@@ -16,11 +16,15 @@ class EloquentUserRepository implements UserRepository
 
     public function create(array $attributes)
     {
+        $attributes['birthdate'] = date_format(date_create($attributes['birthdate']), 'Y-m-d');
         return $this->user->create($attributes);
     }
 
     public function update(array $attributes, User $user)
     {
+        if (isset($attributes['birthdate']))
+            $attributes['birthdate'] = date_format(date_create($attributes['birthdate']), 'Y-m-d');
+
         return $user->update($attributes);
     }
 

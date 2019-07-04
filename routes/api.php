@@ -16,3 +16,19 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix' => 'auth'], function(){
+    Route::post('login', 'AuthController@login')->name('auth.login');
+    Route::post('forgot', 'Auth\ForgotPasswordController@getResetToken');
+    Route::post('forgot/reset', 'Auth\ResetPasswordController@reset');
+
+    Route::group(['middleware' => 'auth:api'], function() {
+        Route::post('logout', 'AuthController@logout')->name('auth.logout');
+    });
+});
+
+Route::post('user', 'UserApiController@store')->name('user.store');
+
+Route::group(['middleware' => 'auth:api'], function(){
+    Route::patch('user/{user}', 'UserApiController@update')->name('user.update');
+});

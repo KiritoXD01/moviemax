@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserUpdatePostValidation extends FormRequest
+class LoginValidation extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,8 @@ class UserUpdatePostValidation extends FormRequest
     public function rules()
     {
         return [
-            'firstname' => 'sometimes|max:255',
-            'lastname'  => 'sometimes|max:255',
-            'email'     => 'sometimes|email|unique:users,email,'.$this->user()->id,
-            'birthdate' => 'sometimes',
-            'user_type' => 'sometimes',
+            'email' => 'required|string|email',
+            'password' => 'required|string'
         ];
     }
 }

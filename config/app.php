@@ -177,6 +177,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Repositories\Providers\UserProvider::class,
         App\Repositories\Providers\MovieProvider::class,
+        App\Repositories\Providers\AuthProvider::class,
 
     ],
 
