@@ -31,5 +31,5 @@ Route::post('user', 'UserApiController@store')->name('user.store');
 
 Route::group(['middleware' => 'auth:api'], function(){
     Route::patch('user/{user}', 'UserApiController@update')->name('user.update');
-    Route::get('movies', 'MovieApiController@search')->name('movie.search');
+    Route::post('movies', 'MovieApiController@search')->name('movie.search');
 });

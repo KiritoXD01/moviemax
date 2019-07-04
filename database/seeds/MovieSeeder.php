@@ -11,6 +11,10 @@ class MovieSeeder extends Seeder
      */
     public function run()
     {
+        factory(App\Models\User::class)->create([
+            'user_type' => App\Enums\UserType::USER
+        ]);
+
         factory(App\Models\Movie::class, 10)->create();
     }
 }
