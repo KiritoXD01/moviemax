@@ -15,8 +15,6 @@ directorio raiz del proyecto y corremos los siguientes comando en el orden
 mostrado:
 
 - `composer install`
-- `php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"`
 - `php artisan migrate`
-- `php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="config"`
 - `php artisan storage:link`
 - `php artisan passport:install`
