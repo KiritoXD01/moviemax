@@ -28,7 +28,7 @@ class UserUpdatePostValidation extends FormRequest
             'lastname'  => 'required|max:255',
             'email'     => 'required|email|unique:users,email,'.$this->user()->id,
             'birthdate' => 'required',
-            'user_type' => 'required',
+            'user_type' => 'sometimes',
         ];
     }
 }
