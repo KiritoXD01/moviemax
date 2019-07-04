@@ -48,7 +48,9 @@ class EloquentMovieRepository implements MovieRepository
         $user = User::find($attributes['user_id']);
 
         $movies = [$attributes['movie_id']];
+        
+        $user->favorite_movies()->attach($movies);
 
-        return $user->favorite_movies()->attach($movies);
+        return $user->favorite_movies;
     }
 }
