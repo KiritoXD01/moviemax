@@ -17,6 +17,7 @@ Auth::routes([
 
 Route::get('/changelanguage/{language}', 'HomeController@changeLanguage')->name('changeLanguage');
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 Route::resource('users', 'UserController');
 Route::patch('/users/{user}/updatepassword', 'UserController@updatePassword')->name('users.updatePassword');
 Route::resource('movies', 'MovieController');
